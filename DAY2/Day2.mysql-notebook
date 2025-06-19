@@ -1,0 +1,2882 @@
+{
+    "type": "MySQLNotebook",
+    "version": "1.0",
+    "caption": "DB Notebook",
+    "content": "\\about\nUSE question1\nINSERT INTO Employees\nVALUES\n('10','Murtaza','Ahmed','murtaza@gmail.com','123456789','2025-6-12','1','50000','1'),\n('11','Talal','Nadeem','talal@gmail.com','123456987','2025-6-14','3','80000','2'),\n('12','Abdullah','Khawaja','abdullah@gmail.com','123654789','2025-6-10','2','60000','1'),\n('13','Ahmed','Ali','ahmed@gmail.com','321456789','2025-6-15','1','55000','4'),\n('14','Usman','Hameed','usman@gmail.com','123459876','2025-6-9','1','57000','3')\nSELECT * FROM Employees\nCREATE TABLE Jobs(\n    job_id INT PRIMARY KEY,\n    job_title VARCHAR(50),\n    min_salary DECIMAL,\n    max_salary DECIMAL\n)\nUPDATE Employees\nSET department_id = 90 \nWHERE department_id <=2\nSELECT * FROM Employees\nUPDATE Employees\nset salary = 4000\nWHERE salary = 50000\nUPDATE Employees\nset salary = 5300\nWHERE salary = 55000\nUPDATE Employees\nset salary = 6000\nWHERE salary = 60000\nUPDATE Employees\nset salary = 11000\nWHERE salary = 80000\nUPDATE Employees\nset salary = 7000\nWHERE salary = 57000\nSELECT * FROM Employees\nINSERT INTO Jobs \nVALUES\n('1','IT','5000','8000'),\n('2','Marketing','5000','9000'),\n('3','HR','4000','8500'),\n('4','Admin','6000','10000'),\n('5','Security','3000','6500')\n\nUPDATE Jobs\nSET max_salary = 12000\nwhere job_id = 3\nINSERT INTO Employees\nVALUES\n('15','Ahmed','khan','khan@gmail.com','123456789','2025-5-12','4','9000','80'),\n('16','Talha','Nadeem','talha@gmail.com','123456987','2025-3-14','3','8000','70'),\n('17','Ahmed','Nadeem','ahmed2001@gmail.com','123654789','2025-1-10','5','5000','60')\nSELECT * FROM Employees\nCREATE TABLE Departments(\n    department_id INT PRIMARY KEY,\n    department_name VARCHAR(50),\n    location_id INT\n)\nINSERT INTO Departments\nVALUES\n('90','Software','80'),\n('3','Medical','75'),\n('4','Lab','76'),\n('60','Hardware','85'),\n('70','Construction','90'),\n('80','Transport','95')\nCREATE TABLE Locations(\n    location_id INT PRIMARY KEY,\n    street_address VARCHAR(50),\n    city VARCHAR(20),\n    state_province VARCHAR(20),\n    postal_code VARCHAR(10),\n    country_id VARCHAR(20)\n)\nINSERT INTO Locations\nVALUES\n('75','194-A, Model Town','Lahore','Punjab','0967','Pakistan'),\n('76','164-B, Model Town','Lahore','Punjab','1067','Pakistan'),\n('80','8-A, Muslim Town','Lahore','Punjab','0907','Pakistan'),\n('85','19-D, ABC Town','Islamabad','Punjab','0537','Pakistan'),\n('90','11-C, XYZ Town','Peshawar','KPK','0856','Pakistan'),\n('95','14-E DEF Town','Karachi','Sindh','0152','Pakistan')\nSELECT * \nFROM Employees \nWHERE department_id = 90\nSELECT first_name,last_name,salary\nFROM Employees\nORDER BY last_name ASC\nSELECT * \nFROM Employees\nORDER BY salary DESC\nLIMIT 5\nSELECT e.employee_id,e.first_name,j.job_title\nFROM Employees e\nJOIN Jobs j ON e.job_id = j.job_id\nWHERE j.job_title LIKE '%IT%'\nSELECT \n    e.first_name,\n    e.last_name,\n    j.job_title\nFROM employees e\nJOIN jobs j ON e.job_id = j.job_id\nSELECT \n    department_id,\n    AVG(salary) AS average_salary\nFROM employees\nGROUP BY department_id\nSELECT j.job_title, COUNT(e.employee_id) AS employee_count\nFROM Employees e\nJOIN Jobs j ON e.job_id = j.job_id\nGroup BY j.job_title\nSELECT d.department_name,\nCOUNT(e.employee_id) AS employee_count\nFROM Departments d\nJOIN Employees e ON d.department_id = e.department_id\nGROUP BY d.department_name\nHAVING COUNT(e.employee_id) > 5",
+    "options": {
+        "tabSize": 4,
+        "insertSpaces": true,
+        "indentSize": 4,
+        "defaultEOL": "LF",
+        "trimAutoWhitespace": true
+    },
+    "viewState": {
+        "cursorState": [
+            {
+                "inSelectionMode": false,
+                "selectionStart": {
+                    "lineNumber": 117,
+                    "column": 32
+                },
+                "position": {
+                    "lineNumber": 117,
+                    "column": 32
+                }
+            }
+        ],
+        "viewState": {
+            "scrollLeft": 0,
+            "firstPosition": {
+                "lineNumber": 103,
+                "column": 1
+            },
+            "firstPositionDeltaTop": -15
+        },
+        "contributionsState": {
+            "editor.contrib.folding": {},
+            "editor.contrib.wordHighlighter": false
+        }
+    },
+    "contexts": [
+        {
+            "state": {
+                "start": 1,
+                "end": 1,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 2,
+                            "content": "Welcome to the MySQL Shell - DB Notebook.\n\nPress Cmd+Enter to execute the code block.\n\nExecute \\sql to switch to SQL, \\js to JavaScript and \\ts to TypeScript mode.\nExecute \\help or \\? for help;",
+                            "language": "ansi"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 6
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 2,
+                "end": 2,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 2,
+                            "index": 0,
+                            "resultId": "adb3a8a0-3afe-4baf-89dd-f62c1a5a47e9",
+                            "content": "OK, 0 records retrieved in 0.711ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 13
+                        },
+                        "contentStart": 0,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 3,
+                "end": 9,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 2,
+                            "index": 0,
+                            "resultId": "6c19caa3-6858-4ee1-916f-e1e85d352485",
+                            "content": "OK, 5 rows affected in 1.186ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 448
+                        },
+                        "contentStart": 0,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 10,
+                "end": 10,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "8b53c1c7-8169-4972-e258-366fb95300b7"
+                    ]
+                },
+                "currentHeight": 36,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 23
+                        },
+                        "contentStart": 0,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "0b7d6d17-f9db-4de6-a3c3-7a5d4fc97ced",
+                    "resultId": "8b53c1c7-8169-4972-e258-366fb95300b7",
+                    "rows": [
+                        {
+                            "0": 10,
+                            "1": "Murtaza",
+                            "2": "Ahmed",
+                            "3": "murtaza@gmail.com",
+                            "4": "123456789",
+                            "5": "2025-06-12",
+                            "6": 1,
+                            "7": "50000",
+                            "8": 1
+                        },
+                        {
+                            "0": 11,
+                            "1": "Talal",
+                            "2": "Nadeem",
+                            "3": "talal@gmail.com",
+                            "4": "123456987",
+                            "5": "2025-06-14",
+                            "6": 3,
+                            "7": "80000",
+                            "8": 2
+                        },
+                        {
+                            "0": 12,
+                            "1": "Abdullah",
+                            "2": "Khawaja",
+                            "3": "abdullah@gmail.com",
+                            "4": "123654789",
+                            "5": "2025-06-10",
+                            "6": 2,
+                            "7": "60000",
+                            "8": 1
+                        },
+                        {
+                            "0": 13,
+                            "1": "Ahmed",
+                            "2": "Ali",
+                            "3": "ahmed@gmail.com",
+                            "4": "321456789",
+                            "5": "2025-06-15",
+                            "6": 1,
+                            "7": "55000",
+                            "8": 4
+                        },
+                        {
+                            "0": 14,
+                            "1": "Usman",
+                            "2": "Hameed",
+                            "3": "usman@gmail.com",
+                            "4": "123459876",
+                            "5": "2025-06-09",
+                            "6": 1,
+                            "7": "57000",
+                            "8": 3
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "employee_id",
+                            "field": "0",
+                            "dataType": {
+                                "type": 4,
+                                "flags": [
+                                    "SIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 10,
+                                "parameterFormatType": "OneOrZero",
+                                "synonyms": [
+                                    "INTEGER",
+                                    "INT4"
+                                ]
+                            },
+                            "inPK": true,
+                            "nullable": false,
+                            "autoIncrement": false
+                        },
+                        {
+                            "title": "first_name",
+                            "field": "1",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "last_name",
+                            "field": "2",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "email",
+                            "field": "3",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "phone_number",
+                            "field": "4",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "hire_date",
+                            "field": "5",
+                            "dataType": {
+                                "type": 27,
+                                "needsQuotes": true
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "job_id",
+                            "field": "6",
+                            "dataType": {
+                                "type": 4,
+                                "flags": [
+                                    "SIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 10,
+                                "parameterFormatType": "OneOrZero",
+                                "synonyms": [
+                                    "INTEGER",
+                                    "INT4"
+                                ]
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "salary",
+                            "field": "7",
+                            "dataType": {
+                                "type": 10,
+                                "flags": [
+                                    "UNSIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 65,
+                                "numericScale": 30,
+                                "parameterFormatType": "TwoOrOneOrZero",
+                                "synonyms": [
+                                    "FIXED",
+                                    "NUMERIC",
+                                    "DEC"
+                                ]
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "department_id",
+                            "field": "8",
+                            "dataType": {
+                                "type": 4,
+                                "flags": [
+                                    "SIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 10,
+                                "parameterFormatType": "OneOrZero",
+                                "synonyms": [
+                                    "INTEGER",
+                                    "INT4"
+                                ]
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 5 records retrieved in 0.332ms"
+                    },
+                    "totalRowCount": 5,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT * FROM Employees",
+                    "updatable": true,
+                    "fullTableName": "Employees"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 11,
+                "end": 16,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 2,
+                            "index": 0,
+                            "resultId": "0c33927d-0ffa-42cb-822f-1216e6ecc0f0",
+                            "content": "OK, 0 records retrieved in 5.369ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 122
+                        },
+                        "contentStart": 0,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 17,
+                "end": 19,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 2,
+                            "index": 0,
+                            "resultId": "647dd666-6c3f-4b6e-9232-ea20600dea7b",
+                            "content": "OK, 3 rows affected in 1.367ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 64
+                        },
+                        "contentStart": 0,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 20,
+                "end": 20,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "7e2c4410-3d02-4ca4-a259-56799ee00cfd"
+                    ]
+                },
+                "currentHeight": 36,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 23
+                        },
+                        "contentStart": 0,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "0b7d6d17-f9db-4de6-a3c3-7a5d4fc97ced",
+                    "resultId": "7e2c4410-3d02-4ca4-a259-56799ee00cfd",
+                    "rows": [
+                        {
+                            "0": 10,
+                            "1": "Murtaza",
+                            "2": "Ahmed",
+                            "3": "murtaza@gmail.com",
+                            "4": "123456789",
+                            "5": "2025-06-12",
+                            "6": 1,
+                            "7": "50000",
+                            "8": 90
+                        },
+                        {
+                            "0": 11,
+                            "1": "Talal",
+                            "2": "Nadeem",
+                            "3": "talal@gmail.com",
+                            "4": "123456987",
+                            "5": "2025-06-14",
+                            "6": 3,
+                            "7": "80000",
+                            "8": 90
+                        },
+                        {
+                            "0": 12,
+                            "1": "Abdullah",
+                            "2": "Khawaja",
+                            "3": "abdullah@gmail.com",
+                            "4": "123654789",
+                            "5": "2025-06-10",
+                            "6": 2,
+                            "7": "60000",
+                            "8": 90
+                        },
+                        {
+                            "0": 13,
+                            "1": "Ahmed",
+                            "2": "Ali",
+                            "3": "ahmed@gmail.com",
+                            "4": "321456789",
+                            "5": "2025-06-15",
+                            "6": 1,
+                            "7": "55000",
+                            "8": 4
+                        },
+                        {
+                            "0": 14,
+                            "1": "Usman",
+                            "2": "Hameed",
+                            "3": "usman@gmail.com",
+                            "4": "123459876",
+                            "5": "2025-06-09",
+                            "6": 1,
+                            "7": "57000",
+                            "8": 3
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "employee_id",
+                            "field": "0",
+                            "dataType": {
+                                "type": 4,
+                                "flags": [
+                                    "SIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 10,
+                                "parameterFormatType": "OneOrZero",
+                                "synonyms": [
+                                    "INTEGER",
+                                    "INT4"
+                                ]
+                            },
+                            "inPK": true,
+                            "nullable": false,
+                            "autoIncrement": false
+                        },
+                        {
+                            "title": "first_name",
+                            "field": "1",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "last_name",
+                            "field": "2",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "email",
+                            "field": "3",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "phone_number",
+                            "field": "4",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "hire_date",
+                            "field": "5",
+                            "dataType": {
+                                "type": 27,
+                                "needsQuotes": true
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "job_id",
+                            "field": "6",
+                            "dataType": {
+                                "type": 4,
+                                "flags": [
+                                    "SIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 10,
+                                "parameterFormatType": "OneOrZero",
+                                "synonyms": [
+                                    "INTEGER",
+                                    "INT4"
+                                ]
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "salary",
+                            "field": "7",
+                            "dataType": {
+                                "type": 10,
+                                "flags": [
+                                    "UNSIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 65,
+                                "numericScale": 30,
+                                "parameterFormatType": "TwoOrOneOrZero",
+                                "synonyms": [
+                                    "FIXED",
+                                    "NUMERIC",
+                                    "DEC"
+                                ]
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "department_id",
+                            "field": "8",
+                            "dataType": {
+                                "type": 4,
+                                "flags": [
+                                    "SIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 10,
+                                "parameterFormatType": "OneOrZero",
+                                "synonyms": [
+                                    "INTEGER",
+                                    "INT4"
+                                ]
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 5 records retrieved in 0.406ms"
+                    },
+                    "totalRowCount": 5,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT * FROM Employees",
+                    "updatable": true,
+                    "fullTableName": "Employees"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 21,
+                "end": 23,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 2,
+                            "index": 0,
+                            "resultId": "0ce22c1b-bd53-4691-be25-41fe1992e3dc",
+                            "content": "OK, 1 row affected in 1.686ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 55
+                        },
+                        "contentStart": 0,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 24,
+                "end": 26,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 2,
+                            "index": 0,
+                            "resultId": "96c32aae-34b8-414d-bae0-d170a2987311",
+                            "content": "OK, 1 row affected in 0.908ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 55
+                        },
+                        "contentStart": 0,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 27,
+                "end": 29,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 2,
+                            "index": 0,
+                            "resultId": "b43b6f70-726a-4e8f-abd1-a649c7a9bc4d",
+                            "content": "OK, 1 row affected in 1.003ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 55
+                        },
+                        "contentStart": 0,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 30,
+                "end": 32,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 2,
+                            "index": 0,
+                            "resultId": "3911cc39-6740-46c6-d1e6-87a6292b273d",
+                            "content": "OK, 1 row affected in 1.177ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 56
+                        },
+                        "contentStart": 0,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 33,
+                "end": 35,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 2,
+                            "index": 0,
+                            "resultId": "2e722868-70ed-40d3-e9f0-21d975031443",
+                            "content": "OK, 1 row affected in 0.919ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 55
+                        },
+                        "contentStart": 0,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 36,
+                "end": 36,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "95cfcf3b-feb1-4d50-d029-33439f88da44"
+                    ]
+                },
+                "currentHeight": 36,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 23
+                        },
+                        "contentStart": 0,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "0b7d6d17-f9db-4de6-a3c3-7a5d4fc97ced",
+                    "resultId": "95cfcf3b-feb1-4d50-d029-33439f88da44",
+                    "rows": [
+                        {
+                            "0": 10,
+                            "1": "Murtaza",
+                            "2": "Ahmed",
+                            "3": "murtaza@gmail.com",
+                            "4": "123456789",
+                            "5": "2025-06-12",
+                            "6": 1,
+                            "7": "4000",
+                            "8": 90
+                        },
+                        {
+                            "0": 11,
+                            "1": "Talal",
+                            "2": "Nadeem",
+                            "3": "talal@gmail.com",
+                            "4": "123456987",
+                            "5": "2025-06-14",
+                            "6": 3,
+                            "7": "11000",
+                            "8": 90
+                        },
+                        {
+                            "0": 12,
+                            "1": "Abdullah",
+                            "2": "Khawaja",
+                            "3": "abdullah@gmail.com",
+                            "4": "123654789",
+                            "5": "2025-06-10",
+                            "6": 2,
+                            "7": "6000",
+                            "8": 90
+                        },
+                        {
+                            "0": 13,
+                            "1": "Ahmed",
+                            "2": "Ali",
+                            "3": "ahmed@gmail.com",
+                            "4": "321456789",
+                            "5": "2025-06-15",
+                            "6": 1,
+                            "7": "5300",
+                            "8": 4
+                        },
+                        {
+                            "0": 14,
+                            "1": "Usman",
+                            "2": "Hameed",
+                            "3": "usman@gmail.com",
+                            "4": "123459876",
+                            "5": "2025-06-09",
+                            "6": 1,
+                            "7": "7000",
+                            "8": 3
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "employee_id",
+                            "field": "0",
+                            "dataType": {
+                                "type": 4,
+                                "flags": [
+                                    "SIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 10,
+                                "parameterFormatType": "OneOrZero",
+                                "synonyms": [
+                                    "INTEGER",
+                                    "INT4"
+                                ]
+                            },
+                            "inPK": true,
+                            "nullable": false,
+                            "autoIncrement": false
+                        },
+                        {
+                            "title": "first_name",
+                            "field": "1",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "last_name",
+                            "field": "2",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "email",
+                            "field": "3",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "phone_number",
+                            "field": "4",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "hire_date",
+                            "field": "5",
+                            "dataType": {
+                                "type": 27,
+                                "needsQuotes": true
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "job_id",
+                            "field": "6",
+                            "dataType": {
+                                "type": 4,
+                                "flags": [
+                                    "SIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 10,
+                                "parameterFormatType": "OneOrZero",
+                                "synonyms": [
+                                    "INTEGER",
+                                    "INT4"
+                                ]
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "salary",
+                            "field": "7",
+                            "dataType": {
+                                "type": 10,
+                                "flags": [
+                                    "UNSIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 65,
+                                "numericScale": 30,
+                                "parameterFormatType": "TwoOrOneOrZero",
+                                "synonyms": [
+                                    "FIXED",
+                                    "NUMERIC",
+                                    "DEC"
+                                ]
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "department_id",
+                            "field": "8",
+                            "dataType": {
+                                "type": 4,
+                                "flags": [
+                                    "SIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 10,
+                                "parameterFormatType": "OneOrZero",
+                                "synonyms": [
+                                    "INTEGER",
+                                    "INT4"
+                                ]
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 5 records retrieved in 0.358ms"
+                    },
+                    "totalRowCount": 5,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT * FROM Employees",
+                    "updatable": true,
+                    "fullTableName": "Employees"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 37,
+                "end": 44,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 2,
+                            "index": 0,
+                            "resultId": "16c2f438-103a-48e7-a055-64e57825cedc",
+                            "content": "OK, 5 rows affected in 1.269ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 171
+                        },
+                        "contentStart": 0,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 45,
+                "end": 47,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 2,
+                            "index": 0,
+                            "resultId": "db5c673b-1d01-4cda-b30c-e62b0c532121",
+                            "content": "OK, 1 row affected in 1.084ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 51
+                        },
+                        "contentStart": 0,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 48,
+                "end": 52,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 2,
+                            "index": 0,
+                            "resultId": "36b09aa1-4292-4fd3-c0a0-1479aea270ce",
+                            "content": "OK, 3 rows affected in 1.129ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 277
+                        },
+                        "contentStart": 0,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 53,
+                "end": 53,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "3432bc44-a282-4b47-afe6-452c781e47a1"
+                    ]
+                },
+                "currentHeight": 36,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 23
+                        },
+                        "contentStart": 0,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "0b7d6d17-f9db-4de6-a3c3-7a5d4fc97ced",
+                    "resultId": "3432bc44-a282-4b47-afe6-452c781e47a1",
+                    "rows": [
+                        {
+                            "0": 10,
+                            "1": "Murtaza",
+                            "2": "Ahmed",
+                            "3": "murtaza@gmail.com",
+                            "4": "123456789",
+                            "5": "2025-06-12",
+                            "6": 1,
+                            "7": "4000",
+                            "8": 90
+                        },
+                        {
+                            "0": 11,
+                            "1": "Talal",
+                            "2": "Nadeem",
+                            "3": "talal@gmail.com",
+                            "4": "123456987",
+                            "5": "2025-06-14",
+                            "6": 3,
+                            "7": "11000",
+                            "8": 90
+                        },
+                        {
+                            "0": 12,
+                            "1": "Abdullah",
+                            "2": "Khawaja",
+                            "3": "abdullah@gmail.com",
+                            "4": "123654789",
+                            "5": "2025-06-10",
+                            "6": 2,
+                            "7": "6000",
+                            "8": 90
+                        },
+                        {
+                            "0": 13,
+                            "1": "Ahmed",
+                            "2": "Ali",
+                            "3": "ahmed@gmail.com",
+                            "4": "321456789",
+                            "5": "2025-06-15",
+                            "6": 1,
+                            "7": "5300",
+                            "8": 4
+                        },
+                        {
+                            "0": 14,
+                            "1": "Usman",
+                            "2": "Hameed",
+                            "3": "usman@gmail.com",
+                            "4": "123459876",
+                            "5": "2025-06-09",
+                            "6": 1,
+                            "7": "7000",
+                            "8": 3
+                        },
+                        {
+                            "0": 15,
+                            "1": "Ahmed",
+                            "2": "khan",
+                            "3": "khan@gmail.com",
+                            "4": "123456789",
+                            "5": "2025-05-12",
+                            "6": 4,
+                            "7": "9000",
+                            "8": 80
+                        },
+                        {
+                            "0": 16,
+                            "1": "Talha",
+                            "2": "Nadeem",
+                            "3": "talha@gmail.com",
+                            "4": "123456987",
+                            "5": "2025-03-14",
+                            "6": 3,
+                            "7": "8000",
+                            "8": 70
+                        },
+                        {
+                            "0": 17,
+                            "1": "Ahmed",
+                            "2": "Nadeem",
+                            "3": "ahmed2001@gmail.com",
+                            "4": "123654789",
+                            "5": "2025-01-10",
+                            "6": 5,
+                            "7": "5000",
+                            "8": 60
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "employee_id",
+                            "field": "0",
+                            "dataType": {
+                                "type": 4,
+                                "flags": [
+                                    "SIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 10,
+                                "parameterFormatType": "OneOrZero",
+                                "synonyms": [
+                                    "INTEGER",
+                                    "INT4"
+                                ]
+                            },
+                            "inPK": true,
+                            "nullable": false,
+                            "autoIncrement": false
+                        },
+                        {
+                            "title": "first_name",
+                            "field": "1",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "last_name",
+                            "field": "2",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "email",
+                            "field": "3",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "phone_number",
+                            "field": "4",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "hire_date",
+                            "field": "5",
+                            "dataType": {
+                                "type": 27,
+                                "needsQuotes": true
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "job_id",
+                            "field": "6",
+                            "dataType": {
+                                "type": 4,
+                                "flags": [
+                                    "SIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 10,
+                                "parameterFormatType": "OneOrZero",
+                                "synonyms": [
+                                    "INTEGER",
+                                    "INT4"
+                                ]
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "salary",
+                            "field": "7",
+                            "dataType": {
+                                "type": 10,
+                                "flags": [
+                                    "UNSIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 65,
+                                "numericScale": 30,
+                                "parameterFormatType": "TwoOrOneOrZero",
+                                "synonyms": [
+                                    "FIXED",
+                                    "NUMERIC",
+                                    "DEC"
+                                ]
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "department_id",
+                            "field": "8",
+                            "dataType": {
+                                "type": 4,
+                                "flags": [
+                                    "SIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 10,
+                                "parameterFormatType": "OneOrZero",
+                                "synonyms": [
+                                    "INTEGER",
+                                    "INT4"
+                                ]
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 8 records retrieved in 0.26ms"
+                    },
+                    "totalRowCount": 8,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT * FROM Employees",
+                    "updatable": true,
+                    "fullTableName": "Employees"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 54,
+                "end": 58,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 2,
+                            "index": 0,
+                            "resultId": "b9e9113c-721f-4c58-d762-c0621d647d44",
+                            "content": "OK, 0 records retrieved in 4.532ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 115
+                        },
+                        "contentStart": 0,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 59,
+                "end": 66,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 2,
+                            "index": 0,
+                            "resultId": "4d221817-c78f-4f8f-bd38-c2b51cc63a8b",
+                            "content": "OK, 6 rows affected in 2.23ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 170
+                        },
+                        "contentStart": 0,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 67,
+                "end": 74,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 2,
+                            "index": 0,
+                            "resultId": "5408b479-e8bb-4d46-8eed-1fb9a9c76866",
+                            "content": "OK, 0 records retrieved in 3.814ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 200
+                        },
+                        "contentStart": 0,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 75,
+                "end": 82,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 2,
+                            "index": 0,
+                            "resultId": "e4911285-3d5b-411d-d471-97d61e93cfd9",
+                            "content": "OK, 6 rows affected in 1.348ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 402
+                        },
+                        "contentStart": 0,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 83,
+                "end": 85,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "e51ac90f-5ca9-461e-e3a2-0331575625ec"
+                    ]
+                },
+                "currentHeight": 36,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 50
+                        },
+                        "contentStart": 0,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "0b7d6d17-f9db-4de6-a3c3-7a5d4fc97ced",
+                    "resultId": "e51ac90f-5ca9-461e-e3a2-0331575625ec",
+                    "rows": [
+                        {
+                            "0": 10,
+                            "1": "Murtaza",
+                            "2": "Ahmed",
+                            "3": "murtaza@gmail.com",
+                            "4": "123456789",
+                            "5": "2025-06-12",
+                            "6": 1,
+                            "7": "4000",
+                            "8": 90
+                        },
+                        {
+                            "0": 11,
+                            "1": "Talal",
+                            "2": "Nadeem",
+                            "3": "talal@gmail.com",
+                            "4": "123456987",
+                            "5": "2025-06-14",
+                            "6": 3,
+                            "7": "11000",
+                            "8": 90
+                        },
+                        {
+                            "0": 12,
+                            "1": "Abdullah",
+                            "2": "Khawaja",
+                            "3": "abdullah@gmail.com",
+                            "4": "123654789",
+                            "5": "2025-06-10",
+                            "6": 2,
+                            "7": "6000",
+                            "8": 90
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "employee_id",
+                            "field": "0",
+                            "dataType": {
+                                "type": 4,
+                                "flags": [
+                                    "SIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 10,
+                                "parameterFormatType": "OneOrZero",
+                                "synonyms": [
+                                    "INTEGER",
+                                    "INT4"
+                                ]
+                            },
+                            "inPK": true,
+                            "nullable": false,
+                            "autoIncrement": false
+                        },
+                        {
+                            "title": "first_name",
+                            "field": "1",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "last_name",
+                            "field": "2",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "email",
+                            "field": "3",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "phone_number",
+                            "field": "4",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "hire_date",
+                            "field": "5",
+                            "dataType": {
+                                "type": 27,
+                                "needsQuotes": true
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "job_id",
+                            "field": "6",
+                            "dataType": {
+                                "type": 4,
+                                "flags": [
+                                    "SIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 10,
+                                "parameterFormatType": "OneOrZero",
+                                "synonyms": [
+                                    "INTEGER",
+                                    "INT4"
+                                ]
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "salary",
+                            "field": "7",
+                            "dataType": {
+                                "type": 10,
+                                "flags": [
+                                    "UNSIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 65,
+                                "numericScale": 30,
+                                "parameterFormatType": "TwoOrOneOrZero",
+                                "synonyms": [
+                                    "FIXED",
+                                    "NUMERIC",
+                                    "DEC"
+                                ]
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "department_id",
+                            "field": "8",
+                            "dataType": {
+                                "type": 4,
+                                "flags": [
+                                    "SIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 10,
+                                "parameterFormatType": "OneOrZero",
+                                "synonyms": [
+                                    "INTEGER",
+                                    "INT4"
+                                ]
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 3 records retrieved in 0.401ms"
+                    },
+                    "totalRowCount": 3,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT * \nFROM Employees \nWHERE department_id = 90",
+                    "updatable": true,
+                    "fullTableName": "Employees"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 86,
+                "end": 88,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "bd1ddd65-3ad2-4fb6-e46d-6b908f6fa0cc"
+                    ]
+                },
+                "currentHeight": 36,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 72
+                        },
+                        "contentStart": 0,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "0b7d6d17-f9db-4de6-a3c3-7a5d4fc97ced",
+                    "resultId": "bd1ddd65-3ad2-4fb6-e46d-6b908f6fa0cc",
+                    "rows": [
+                        {
+                            "0": "Murtaza",
+                            "1": "Ahmed",
+                            "2": "4000"
+                        },
+                        {
+                            "0": "Ahmed",
+                            "1": "Ali",
+                            "2": "5300"
+                        },
+                        {
+                            "0": "Usman",
+                            "1": "Hameed",
+                            "2": "7000"
+                        },
+                        {
+                            "0": "Ahmed",
+                            "1": "khan",
+                            "2": "9000"
+                        },
+                        {
+                            "0": "Abdullah",
+                            "1": "Khawaja",
+                            "2": "6000"
+                        },
+                        {
+                            "0": "Talal",
+                            "1": "Nadeem",
+                            "2": "11000"
+                        },
+                        {
+                            "0": "Talha",
+                            "1": "Nadeem",
+                            "2": "8000"
+                        },
+                        {
+                            "0": "Ahmed",
+                            "1": "Nadeem",
+                            "2": "5000"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "first_name",
+                            "field": "0",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        },
+                        {
+                            "title": "last_name",
+                            "field": "1",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        },
+                        {
+                            "title": "salary",
+                            "field": "2",
+                            "dataType": {
+                                "type": 10,
+                                "flags": [
+                                    "UNSIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 65,
+                                "numericScale": 30,
+                                "parameterFormatType": "TwoOrOneOrZero",
+                                "synonyms": [
+                                    "FIXED",
+                                    "NUMERIC",
+                                    "DEC"
+                                ]
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 8 records retrieved in 0.422ms"
+                    },
+                    "totalRowCount": 8,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT first_name,last_name,salary\nFROM Employees\nORDER BY last_name ASC",
+                    "updatable": false,
+                    "fullTableName": "Employees"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 89,
+                "end": 92,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "57461da9-256d-404b-bf03-d8469d7e555c"
+                    ]
+                },
+                "currentHeight": 36,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 53
+                        },
+                        "contentStart": 0,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "0b7d6d17-f9db-4de6-a3c3-7a5d4fc97ced",
+                    "resultId": "57461da9-256d-404b-bf03-d8469d7e555c",
+                    "rows": [
+                        {
+                            "0": 11,
+                            "1": "Talal",
+                            "2": "Nadeem",
+                            "3": "talal@gmail.com",
+                            "4": "123456987",
+                            "5": "2025-06-14",
+                            "6": 3,
+                            "7": "11000",
+                            "8": 90
+                        },
+                        {
+                            "0": 15,
+                            "1": "Ahmed",
+                            "2": "khan",
+                            "3": "khan@gmail.com",
+                            "4": "123456789",
+                            "5": "2025-05-12",
+                            "6": 4,
+                            "7": "9000",
+                            "8": 80
+                        },
+                        {
+                            "0": 16,
+                            "1": "Talha",
+                            "2": "Nadeem",
+                            "3": "talha@gmail.com",
+                            "4": "123456987",
+                            "5": "2025-03-14",
+                            "6": 3,
+                            "7": "8000",
+                            "8": 70
+                        },
+                        {
+                            "0": 14,
+                            "1": "Usman",
+                            "2": "Hameed",
+                            "3": "usman@gmail.com",
+                            "4": "123459876",
+                            "5": "2025-06-09",
+                            "6": 1,
+                            "7": "7000",
+                            "8": 3
+                        },
+                        {
+                            "0": 12,
+                            "1": "Abdullah",
+                            "2": "Khawaja",
+                            "3": "abdullah@gmail.com",
+                            "4": "123654789",
+                            "5": "2025-06-10",
+                            "6": 2,
+                            "7": "6000",
+                            "8": 90
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "employee_id",
+                            "field": "0",
+                            "dataType": {
+                                "type": 4,
+                                "flags": [
+                                    "SIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 10,
+                                "parameterFormatType": "OneOrZero",
+                                "synonyms": [
+                                    "INTEGER",
+                                    "INT4"
+                                ]
+                            },
+                            "inPK": true,
+                            "nullable": false,
+                            "autoIncrement": false
+                        },
+                        {
+                            "title": "first_name",
+                            "field": "1",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "last_name",
+                            "field": "2",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "email",
+                            "field": "3",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "phone_number",
+                            "field": "4",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "hire_date",
+                            "field": "5",
+                            "dataType": {
+                                "type": 27,
+                                "needsQuotes": true
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "job_id",
+                            "field": "6",
+                            "dataType": {
+                                "type": 4,
+                                "flags": [
+                                    "SIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 10,
+                                "parameterFormatType": "OneOrZero",
+                                "synonyms": [
+                                    "INTEGER",
+                                    "INT4"
+                                ]
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "salary",
+                            "field": "7",
+                            "dataType": {
+                                "type": 10,
+                                "flags": [
+                                    "UNSIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 65,
+                                "numericScale": 30,
+                                "parameterFormatType": "TwoOrOneOrZero",
+                                "synonyms": [
+                                    "FIXED",
+                                    "NUMERIC",
+                                    "DEC"
+                                ]
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "department_id",
+                            "field": "8",
+                            "dataType": {
+                                "type": 4,
+                                "flags": [
+                                    "SIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 10,
+                                "parameterFormatType": "OneOrZero",
+                                "synonyms": [
+                                    "INTEGER",
+                                    "INT4"
+                                ]
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 5 records retrieved in 0.344ms"
+                    },
+                    "totalRowCount": 5,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT * \nFROM Employees\nORDER BY salary DESC\nLIMIT 5",
+                    "updatable": true,
+                    "fullTableName": "Employees"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 93,
+                "end": 96,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "198378b1-05bb-4fc9-fd7d-165bdd36b3ad"
+                    ]
+                },
+                "currentHeight": 36,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 127
+                        },
+                        "contentStart": 0,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "0b7d6d17-f9db-4de6-a3c3-7a5d4fc97ced",
+                    "resultId": "198378b1-05bb-4fc9-fd7d-165bdd36b3ad",
+                    "rows": [
+                        {
+                            "0": 10,
+                            "1": "Murtaza",
+                            "2": "IT"
+                        },
+                        {
+                            "0": 13,
+                            "1": "Ahmed",
+                            "2": "IT"
+                        },
+                        {
+                            "0": 14,
+                            "1": "Usman",
+                            "2": "IT"
+                        },
+                        {
+                            "0": 17,
+                            "1": "Ahmed",
+                            "2": "Security"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "employee_id",
+                            "field": "0",
+                            "dataType": {
+                                "type": 4,
+                                "flags": [
+                                    "SIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 10,
+                                "parameterFormatType": "OneOrZero",
+                                "synonyms": [
+                                    "INTEGER",
+                                    "INT4"
+                                ]
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        },
+                        {
+                            "title": "first_name",
+                            "field": "1",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        },
+                        {
+                            "title": "job_title",
+                            "field": "2",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 4 records retrieved in 0.496ms"
+                    },
+                    "totalRowCount": 4,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT e.employee_id,e.first_name,j.job_title\nFROM Employees e\nJOIN Jobs j ON e.job_id = j.job_id\nWHERE j.job_title LIKE '%IT%'",
+                    "updatable": false,
+                    "fullTableName": ""
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 97,
+                "end": 102,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "5d986560-a71a-4ca9-fa89-015f695588b4"
+                    ]
+                },
+                "currentHeight": 36,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 110
+                        },
+                        "contentStart": 0,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "0b7d6d17-f9db-4de6-a3c3-7a5d4fc97ced",
+                    "resultId": "5d986560-a71a-4ca9-fa89-015f695588b4",
+                    "rows": [
+                        {
+                            "0": "Murtaza",
+                            "1": "Ahmed",
+                            "2": "IT"
+                        },
+                        {
+                            "0": "Talal",
+                            "1": "Nadeem",
+                            "2": "HR"
+                        },
+                        {
+                            "0": "Abdullah",
+                            "1": "Khawaja",
+                            "2": "Marketing"
+                        },
+                        {
+                            "0": "Ahmed",
+                            "1": "Ali",
+                            "2": "IT"
+                        },
+                        {
+                            "0": "Usman",
+                            "1": "Hameed",
+                            "2": "IT"
+                        },
+                        {
+                            "0": "Ahmed",
+                            "1": "khan",
+                            "2": "Admin"
+                        },
+                        {
+                            "0": "Talha",
+                            "1": "Nadeem",
+                            "2": "HR"
+                        },
+                        {
+                            "0": "Ahmed",
+                            "1": "Nadeem",
+                            "2": "Security"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "first_name",
+                            "field": "0",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        },
+                        {
+                            "title": "last_name",
+                            "field": "1",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        },
+                        {
+                            "title": "job_title",
+                            "field": "2",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 8 records retrieved in 0.483ms"
+                    },
+                    "totalRowCount": 8,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT \n    e.first_name,\n    e.last_name,\n    j.job_title\nFROM employees e\nJOIN jobs j ON e.job_id = j.job_id",
+                    "updatable": false,
+                    "fullTableName": ""
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 103,
+                "end": 107,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "05c5b093-6cef-49b4-8f85-96b30660fa84"
+                    ]
+                },
+                "currentHeight": 196,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 98
+                        },
+                        "contentStart": 0,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "0b7d6d17-f9db-4de6-a3c3-7a5d4fc97ced",
+                    "resultId": "05c5b093-6cef-49b4-8f85-96b30660fa84",
+                    "rows": [
+                        {
+                            "0": 90,
+                            "1": "7000.0000"
+                        },
+                        {
+                            "0": 4,
+                            "1": "5300.0000"
+                        },
+                        {
+                            "0": 3,
+                            "1": "7000.0000"
+                        },
+                        {
+                            "0": 80,
+                            "1": "9000.0000"
+                        },
+                        {
+                            "0": 70,
+                            "1": "8000.0000"
+                        },
+                        {
+                            "0": 60,
+                            "1": "5000.0000"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "department_id",
+                            "field": "0",
+                            "dataType": {
+                                "type": 4,
+                                "flags": [
+                                    "SIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 10,
+                                "parameterFormatType": "OneOrZero",
+                                "synonyms": [
+                                    "INTEGER",
+                                    "INT4"
+                                ]
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        },
+                        {
+                            "title": "average_salary",
+                            "field": "1",
+                            "dataType": {
+                                "type": 10,
+                                "flags": [
+                                    "UNSIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 65,
+                                "numericScale": 30,
+                                "parameterFormatType": "TwoOrOneOrZero",
+                                "synonyms": [
+                                    "FIXED",
+                                    "NUMERIC",
+                                    "DEC"
+                                ]
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 6 records retrieved in 0.433ms"
+                    },
+                    "totalRowCount": 6,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT \n    department_id,\n    AVG(salary) AS average_salary\nFROM employees\nGROUP BY department_id",
+                    "updatable": false,
+                    "fullTableName": ""
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 108,
+                "end": 111,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "f893a741-30da-425a-a46f-82af10e5f58c"
+                    ]
+                },
+                "currentHeight": 174,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 131
+                        },
+                        "contentStart": 0,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "0b7d6d17-f9db-4de6-a3c3-7a5d4fc97ced",
+                    "resultId": "f893a741-30da-425a-a46f-82af10e5f58c",
+                    "rows": [
+                        {
+                            "0": "IT",
+                            "1": 3
+                        },
+                        {
+                            "0": "HR",
+                            "1": 2
+                        },
+                        {
+                            "0": "Marketing",
+                            "1": 1
+                        },
+                        {
+                            "0": "Admin",
+                            "1": 1
+                        },
+                        {
+                            "0": "Security",
+                            "1": 1
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "job_title",
+                            "field": "0",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        },
+                        {
+                            "title": "employee_count",
+                            "field": "1",
+                            "dataType": {
+                                "type": 4,
+                                "flags": [
+                                    "SIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 10,
+                                "parameterFormatType": "OneOrZero",
+                                "synonyms": [
+                                    "INTEGER",
+                                    "INT4"
+                                ]
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 5 records retrieved in 0.635ms"
+                    },
+                    "totalRowCount": 5,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT j.job_title, COUNT(e.employee_id) AS employee_count\nFROM Employees e\nJOIN Jobs j ON e.job_id = j.job_id\nGroup BY j.job_title",
+                    "updatable": false,
+                    "fullTableName": ""
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 112,
+                "end": 117,
+                "language": "mysql",
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 196
+                        },
+                        "contentStart": 0,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        }
+    ]
+}
